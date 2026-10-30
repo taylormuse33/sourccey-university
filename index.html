@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sourccey University</title>
+<script>
+(async function(){
+  var parts = ["site/part-00.txt", "site/part-01.txt", "site/part-02.txt", "site/part-03.txt", "site/part-04.txt"], html = "";
+  for (var i = 0; i < parts.length; i++) {
+    var r = await fetch(parts[i]);
+    if (!r.ok) { document.body.innerHTML = "<p style='color:#fff;background:#111;padding:20px'>Site failed to load part " + i + " (" + r.status + "). Please reload.</p>"; return; }
+    html += await r.text();
+  }
+  document.open(); document.write(html); document.close();
+})();
+</script>
+</head><body style="background:#0b0b12;color:#fff;font-family:sans-serif;padding:40px;text-align:center">Loading Sourccey University…</body></html>
